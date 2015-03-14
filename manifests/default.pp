@@ -29,7 +29,7 @@ class common_dependencies {
     before => Apt::Ppa["ppa:webupd8team/java"],
   }
 
-  package { ["oracle-java7-installer"]:
+  package { ["oracle-java8-installer"]:
     ensure => present,
     require => Exec["apt-get update 2"],
   }
@@ -41,7 +41,7 @@ class common_dependencies {
     user => "vagrant",
     path    => "/usr/bin/:/bin/",
     require => Package["curl"],
-    before => Package["oracle-java7-installer"],
+    before => Package["oracle-java8-installer"],
     logoutput => true,
   }
 
@@ -51,7 +51,7 @@ class bamboo {
   include common_dependencies
 
   $bamboo_home = "/vagrant/bamboo-home"
-  $bamboo_version = "4.4.5"
+  $bamboo_version = "5.7.2"
 
   exec {
     "download_bamboo":
@@ -82,7 +82,7 @@ class bamboo {
     cwd => "/vagrant",
     user => "vagrant",
     path    => "/usr/bin/:/bin/",
-    require => [ Package["oracle-java7-installer"],
+    require => [ Package["oracle-java8-installer"],
                  Exec["accept_license"],
                  Exec["download_bamboo"],
                  Exec["create_bamboo_home"] ],
@@ -94,7 +94,7 @@ class confluence {
   include common_dependencies
 
   $confluence_home = "/vagrant/confluence-home"
-  $confluence_version = "5.1"
+  $confluence_version = "5.7.1"
 
   exec {
     "download_confluence":
@@ -125,7 +125,7 @@ class confluence {
     cwd => "/vagrant",
     user => "vagrant",
     path    => "/usr/bin/:/bin/",
-    require => [ Package["oracle-java7-installer"],
+    require => [ Package["oracle-java8-installer"],
                  Exec["accept_license"],
                  Exec["download_confluence"],
                  Exec["create_confluence_home"] ],
@@ -137,7 +137,7 @@ class jira {
   include common_dependencies
 
   $jira_home = "/vagrant/jira-home"
-  $jira_version = "5.2.10"
+  $jira_version = "6.3.15"
 
   exec {
     "download_jira":
@@ -168,7 +168,7 @@ class jira {
     cwd => "/vagrant",
     user => "vagrant",
     path    => "/usr/bin/:/bin/",
-    require => [ Package["oracle-java7-installer"],
+    require => [ Package["oracle-java8-installer"],
                  Exec["accept_license"],
                  Exec["download_jira"],
                  Exec["create_jira_home"] ],
@@ -179,7 +179,7 @@ class jira {
 class stash {
   include common_dependencies
 
-  $stash_version = "2.3.1"
+  $stash_version = "3.7.1"
   $stash_home = "/vagrant/stash-home"
 
   exec {
@@ -211,7 +211,7 @@ class stash {
     cwd => "/vagrant",
     user => "vagrant",
     path    => "/usr/bin/:/bin/",
-    require => [ Package["oracle-java7-installer"],
+    require => [ Package["oracle-java8-installer"],
                  Exec["accept_license"],
                  Exec["download_stash"],
                  Exec["create_stash_home"] ],
