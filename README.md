@@ -25,7 +25,13 @@ A project that uses Vagrant and Puppet to create and boot a VirtualBox VM with t
 	$ vagrant up
 
 Once the VM boot and provisioning is complete, you can access the applications at the following locations:
-* Bamboo: http://192.168.33.12:8085
-* Confluence: http://192.168.33.12:8090
-* JIRA: http://192.168.33.12:8080
-* Stash: http://192.168.33.12:7990
+* Bamboo: http://192.168.100.100:8085
+* Confluence: http://192.168.100.100:8090
+* JIRA: http://192.168.100.100:8080
+* Stash: http://192.168.100.100:7990
+
+## Reference URL's
+## 
+## cPrime scrubbed : https://lab.cprime.com/stash/users/sworley/repos/atlassian-stack-vagrant/
+## sworley Forked : https://github.com/sworley/atlassian-apps-vagrant-install
+## Original : https://github.com/lwndev/atlassian-apps-vagrant-install

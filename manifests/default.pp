@@ -51,7 +51,7 @@ class bamboo {
   include common_dependencies
 
   $bamboo_home = "/vagrant/bamboo-home"
-  $bamboo_version = "5.7.2"
+  $bamboo_version = "5.8.1"
 
   exec {
     "download_bamboo":
@@ -137,7 +137,7 @@ class jira {
   include common_dependencies
 
   $jira_home = "/vagrant/jira-home"
-  $jira_version = "6.3.15"
+  $jira_version = "6.4.1"
 
   exec {
     "download_jira":
@@ -179,7 +179,7 @@ class jira {
 class stash {
   include common_dependencies
 
-  $stash_version = "3.7.1"
+  $stash_version = "3.8.0"
   $stash_home = "/vagrant/stash-home"
 
   exec {
